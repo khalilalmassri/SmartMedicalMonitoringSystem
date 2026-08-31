@@ -1,0 +1,122 @@
+ID: REQ-F-001
+Title: receive heart rate measurement
+Requirement: The system shall receive heart rate and measure it
+Type: functional requirement
+Priority: high
+Rationale: to be able to check the heart rate, it should be received first
+Verification Method: integration test
+
+ID:REQ-F-002
+Title: evaluate and decide if measurement is normal or abnormal
+Requirement: The system shall check if the heart rate is normal or not
+Type: functional requirement
+Priority: high
+Rationale: checking the heart rate is important to know if calling nurse is needed
+Verification Method: integration test
+
+ID:REQ-F-003
+Title: notify nurse
+Requirement: The system shall notify the nurse in case of abnormality
+Type: functional requirement
+Priority: high
+Rationale: calling the nurse is important if their is an abnormality
+Verification Method: integration test
+
+ID:REQ-F-004
+Title: record abnormal event
+Requirement: The system shall record abnormal event 
+Type: functional requirement
+Priority: high
+Rationale: recording abnormal events is important for the later patient checkup
+Verification Method: integration test
+
+ID:REQ-F-005
+Title: escalate unacknowledged event
+Requirement: The system shall escalate unacknowledged event
+Type: functional requirement
+Priority: high
+Rationale: if the nurse didn't respond in 60 seconds, there should be an escalation
+Verification Method: integration test
+
+ID:REQ-F-006
+Title: register a patient
+Requirement: The system shall register a patient
+Type: functional requirement
+Priority: high
+Rationale: a patient information should be registered to the system
+Verification Method: integration test
+
+ID:REQ-F-007
+Title: support multiple patients
+Requirement: The system shall support multiple patients
+Type: functional requirement
+Priority: high
+Rationale: The system shall be able to handle supporting multiple patients at the same time without going down or errors
+Verification Method: integration test
+
+ID:REQ-F-008
+Title: check measurements are for the correct patients
+Requirement: The system shall associate measurement with correct patient
+Type: functional requirement
+Priority: high
+Rationale: The system shall send the correct associated data with the correct patient
+Verification Method: integration test
+
+ID:REQ-S-001
+Title: keeping personal data accessible between the hospital and the patient
+Requirement: The system shall secure personal data
+Type: security/ privacy requirement
+Priority: high
+Rationale: the patient data should stay secure for the patient and the hospital
+Verification Method: integration test
+
+ID:REQ-P-001
+Title: ensuring heart-rate is evaluated every 5 seconds
+Requirement: The system shall ensure heart-rate is evaluated every 5 seconds
+Type: performance requirement
+Priority: high
+Rationale: heart rate should be evaluated in an interval of 5 seconds to check abnormalities
+Verification Method: integration test
+
+ID:REQ-P-002
+Title: device disconnection alarm
+Requirement: The system shall check connectivity with the heart-beat sensor, and make an alarm if disconnected
+Type: performance requirement
+Priority: high
+Rationale: make sure all is well connected 
+Verification Method: integration test
+
+ID:REQ-D-001
+Title: Get patient data
+Requirement: The system shall Get patient data
+Type: Data requirement
+Priority: high
+Rationale: make sure fetching data is working
+Verification Method: integration test
+
+ID:REQ-D-002
+Title: check if the normal patient data will delete after some time
+Requirement: The system shall remove all normal data after some time
+Type: Data requirement
+Priority: medium 
+Rationale: normal event data aren't required to be registered permanently, it should be removed after some time
+Verification Method: integration test integration test
+
+| ID        | Requirement                                                 |
+| --------- | ----------------------------------------------------------- |
+| REQ-F-001 | Receive heart-rate measurement                              |
+| REQ-F-002 | Associate measurement with correct patient                  |
+| REQ-F-003 | Compare measurement with patient thresholds                 |
+| REQ-F-004 | Detect abnormal heart rate                                  |
+| REQ-F-005 | Notify assigned nurse                                       |
+| REQ-F-006 | Allow nurse to acknowledge alert                            |
+| REQ-F-007 | Escalate alert after 60 seconds without acknowledgment      |
+| REQ-F-008 | Support simultaneous monitoring of multiple patients        |
+| REQ-F-009 | Register/manage patient monitoring information              |
+| REQ-F-010 | Configure min/max thresholds per patient                    |
+| REQ-D-001 | Record abnormal event data                                  |
+| REQ-D-002 | Store required abnormal-event fields                        |
+| REQ-D-003 | Retain monitoring records for configurable retention period |
+| REQ-P-001 | Process measurements received every five seconds            |
+| REQ-R-001 | Detect device disconnection and generate technical alert    |
+| REQ-S-001 | Restrict patient information to authorized users            |

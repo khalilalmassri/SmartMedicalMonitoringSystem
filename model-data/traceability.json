@@ -1,0 +1,84 @@
+{
+  "traceability": [
+    {
+      "requirementId": "REQ-F-001",
+      "componentIds": ["CMP-001"],
+      "verificationId": "TEST-F-001"
+    },
+    {
+      "requirementId": "REQ-F-002",
+      "componentIds": ["CMP-002", "CMP-004"],
+      "verificationId": "TEST-F-002"
+    },
+    {
+      "requirementId": "REQ-F-003",
+      "componentIds": ["CMP-002", "CMP-004"],
+      "verificationId": "TEST-F-003"
+    },
+    {
+      "requirementId": "REQ-F-004",
+      "componentIds": ["CMP-002"],
+      "verificationId": "TEST-F-004"
+    },
+    {
+      "requirementId": "REQ-F-005",
+      "componentIds": ["CMP-003", "CMP-006"],
+      "verificationId": "TEST-F-005"
+    },
+    {
+      "requirementId": "REQ-F-006",
+      "componentIds": ["CMP-003", "CMP-006"],
+      "verificationId": "TEST-F-006"
+    },
+    {
+      "requirementId": "REQ-F-007",
+      "componentIds": ["CMP-003"],
+      "verificationId": "TEST-F-007"
+    },
+    {
+      "requirementId": "REQ-F-008",
+      "componentIds": ["CMP-002"],
+      "verificationId": "TEST-F-008"
+    },
+    {
+      "requirementId": "REQ-F-009",
+      "componentIds": ["CMP-007", "CMP-004"],
+      "verificationId": "TEST-F-009"
+    },
+    {
+      "requirementId": "REQ-F-010",
+      "componentIds": ["CMP-007", "CMP-004"],
+      "verificationId": "TEST-F-010"
+    },
+    {
+      "requirementId": "REQ-D-001",
+      "componentIds": ["CMP-002", "CMP-005"],
+      "verificationId": "TEST-D-001"
+    },
+    {
+      "requirementId": "REQ-D-002",
+      "componentIds": ["CMP-005"],
+      "verificationId": "TEST-D-002"
+    },
+    {
+      "requirementId": "REQ-D-003",
+      "componentIds": ["CMP-005"],
+      "verificationId": "TEST-D-003"
+    },
+    {
+      "requirementId": "REQ-P-001",
+      "componentIds": ["CMP-001", "CMP-002"],
+      "verificationId": "TEST-P-001"
+    },
+    {
+      "requirementId": "REQ-R-001",
+      "componentIds": ["CMP-001", "CMP-002"],
+      "verificationId": "TEST-R-001"
+    },
+    {
+      "requirementId": "REQ-S-001",
+      "componentIds": ["CMP-006", "CMP-007"],
+      "verificationId": "TEST-S-001"
+    }
+  ]
+}

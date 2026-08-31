@@ -1,0 +1,42 @@
+# Smart Medical Monitoring System Report
+
+## Summary
+
+- Total Requirements: {{ requirements|length }}
+- Total Components: {{ components|length }}
+- Total Traceability Links: {{ traceabilities|length }}
+
+## Requirements
+
+{% for requirement in requirements %}
+### {{ requirement.id }} - {{ requirement.title }}
+
+{{ requirement.description }}
+
+- Type: {{ requirement.type }}
+- Priority: {{ requirement.priority }}
+- Verification Method: {{ requirement.verificationMethod }}
+
+{% endfor %}
+
+## Components
+
+{% for component in components %}
+### {{ component.id }} - {{ component.name }}
+
+- Type: {{ component.type }}
+- Responsibility: {{ component.responsibility }}
+- Dependencies: {{ component.dependencies | join(", ") }}
+
+{% endfor %}
+
+## Traceability
+
+{% for traceability in traceabilities %}
+### Traceability Link
+
+- Requirement ID: {{ traceability.requirementId }}
+- Component IDs: {{ traceability.componentIds | join(", ") }}
+- Verification ID: {{ traceability.verificationId }}
+
+{% endfor %}

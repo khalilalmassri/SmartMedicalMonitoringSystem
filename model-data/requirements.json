@@ -1,0 +1,148 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-F-001",
+      "title": "Receive Heart-Rate Measurement",
+      "description": "The system shall receive heart-rate measurements from a connected monitoring device.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Heart-rate measurements must be received before the system can evaluate the patient's condition.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-002",
+      "title": "Associate Measurement with Patient",
+      "description": "The system shall associate each received heart-rate measurement with the correct patient using a unique patient identifier.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Each measurement must be processed and recorded for the correct patient.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-003",
+      "title": "Evaluate Heart-Rate Measurement",
+      "description": "The system shall compare each received heart-rate measurement against the configured minimum and maximum thresholds for the associated patient.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "The system must determine whether the patient's heart rate is within the configured acceptable range.",
+      "verificationMethod": "UNIT_TEST"
+    },
+    {
+      "id": "REQ-F-004",
+      "title": "Detect Abnormal Heart Rate",
+      "description": "The system shall classify a heart-rate measurement as abnormal when it is below the configured minimum threshold or above the configured maximum threshold.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Abnormal measurements must be identified before an alert can be generated.",
+      "verificationMethod": "UNIT_TEST"
+    },
+    {
+      "id": "REQ-F-005",
+      "title": "Notify Assigned Nurse",
+      "description": "The system shall send an alert to the patient's assigned nurse when an abnormal heart-rate measurement is detected.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "The responsible nurse must be informed when the system detects an abnormal patient condition.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-006",
+      "title": "Acknowledge Alert",
+      "description": "The system shall allow the assigned nurse to acknowledge an abnormal-heart-rate alert.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "The system must know whether an alert has been received and handled by the assigned nurse.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-007",
+      "title": "Escalate Unacknowledged Alert",
+      "description": "The system shall escalate an abnormal-heart-rate alert if the assigned nurse has not acknowledged it within 60 seconds.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Critical abnormal events must not remain unattended when the assigned nurse does not respond.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-008",
+      "title": "Support Multiple Patients",
+      "description": "The system shall support simultaneous monitoring of multiple patients.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "The system is intended to monitor multiple hospitalized patients at the same time.",
+      "verificationMethod": "SYSTEM_TEST"
+    },
+    {
+      "id": "REQ-F-009",
+      "title": "Register Patient",
+      "description": "The system shall allow an authorized user to register a patient for heart-rate monitoring.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Patient monitoring information must exist before measurements can be associated with a patient.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-F-010",
+      "title": "Configure Patient Thresholds",
+      "description": "The system shall allow an authorized user to configure minimum and maximum heart-rate thresholds for each patient.",
+      "type": "FUNCTIONAL",
+      "priority": "HIGH",
+      "rationale": "Different patients may require different monitoring thresholds.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-D-001",
+      "title": "Record Abnormal Event",
+      "description": "The system shall store every detected abnormal heart-rate event.",
+      "type": "DATA",
+      "priority": "HIGH",
+      "rationale": "Abnormal events must be available for later clinical review and system traceability.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-D-002",
+      "title": "Store Abnormal Event Information",
+      "description": "The system shall store the patient identifier, heart-rate value, timestamp, severity, and notification status for every abnormal event.",
+      "type": "DATA",
+      "priority": "HIGH",
+      "rationale": "Sufficient event information is required to understand and review abnormal monitoring events.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-D-003",
+      "title": "Retain Monitoring Records",
+      "description": "The system shall retain stored monitoring records for a configurable retention period.",
+      "type": "DATA",
+      "priority": "MEDIUM",
+      "rationale": "Record retention requirements may vary depending on organizational and regulatory needs.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-P-001",
+      "title": "Process Five-Second Measurements",
+      "description": "The system shall process heart-rate measurements received from each monitoring device at five-second intervals.",
+      "type": "PERFORMANCE",
+      "priority": "HIGH",
+      "rationale": "Heart-rate measurements must be evaluated frequently enough to detect abnormalities in a timely manner.",
+      "verificationMethod": "PERFORMANCE_TEST"
+    },
+    {
+      "id": "REQ-R-001",
+      "title": "Detect Device Disconnection",
+      "description": "The system shall generate a technical alert when a monitoring device becomes disconnected or stops providing heart-rate measurements.",
+      "type": "RELIABILITY",
+      "priority": "HIGH",
+      "rationale": "A disconnected monitoring device may prevent the system from detecting a patient's abnormal heart rate.",
+      "verificationMethod": "INTEGRATION_TEST"
+    },
+    {
+      "id": "REQ-S-001",
+      "title": "Restrict Patient Data Access",
+      "description": "The system shall restrict access to patient monitoring information to authorized users.",
+      "type": "SECURITY",
+      "priority": "HIGH",
+      "rationale": "Patient monitoring information must be protected from unauthorized access.",
+      "verificationMethod": "SECURITY_TEST"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+@startuml
+actor MonitoringDevice
+actor Nurse
+actor HealthcareAdministrator
+
+rectangle "Smart Medical Monitoring System" {
+    usecase "Send Heart-Rate Measurement" as UC1
+    usecase "Receive / View Alert" as UC2
+    usecase "Acknowledge Alert" as UC3
+    usecase "View Patient Monitoring Information" as UC4
+    usecase "View Abnormal Event History" as UC5
+    usecase "Register Patient" as UC6
+    usecase "Assign Nurse" as UC7
+    usecase "Configure Heart-Rate Thresholds" as UC8
+}
+
+MonitoringDevice--> UC1
+Nurse--> UC2
+Nurse--> UC3
+Nurse--> UC4
+Nurse--> UC5
+HealthcareAdministrator--> UC6
+HealthcareAdministrator--> UC7
+HealthcareAdministrator--> UC8
+@enduml

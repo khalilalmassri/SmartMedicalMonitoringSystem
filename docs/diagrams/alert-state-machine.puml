@@ -1,0 +1,13 @@
+@startuml
+
+[*] --> Created
+
+Created --> Sent : notification delivered
+Sent --> Acknowledged : nurse acknowledges within 60 seconds
+Sent --> Escalated : no acknowledgment within 60 seconds
+Escalated --> Acknowledged : nurse acknowledges later
+Acknowledged --> Closed : nurse closes alert
+
+Closed-->[*]
+
+@enduml

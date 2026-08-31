@@ -1,0 +1,27 @@
+@startuml
+
+component "Device Interface" as DI
+component "Monitoring Service" as MS
+component "Alert Service" as AS
+component "Patient Repository" as PR
+component "Event Repository" as ER
+component "Nurse Interface" as NI
+component "Administrator Interface" as AI
+MD --> DI: sends measurement
+
+DI--> MS : forwards measurement
+
+MS --> PR : get patient / thresholds
+MS--> ER: store abnormal event
+MS--> AS: create abnormal alert
+
+AS--> NI: send notification
+AS--> ER: update alert status
+
+NI--> AS: acknowledge alert
+NI--> PR: get patient information
+NI--> ER: get event history
+
+AI--> PR: manage patient information
+
+@enduml

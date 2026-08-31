@@ -1,0 +1,68 @@
+{
+  "components": [
+    {
+      "id": "CMP-001",
+      "name": "DeviceInterface",
+      "type": "INTERFACE",
+      "responsibility": "Receive heart-rate measurements from external monitoring devices and forward them to the monitoring service.",
+      "dependencies": [
+        "CMP-002"
+      ]
+    },
+    {
+      "id": "CMP-002",
+      "name": "MonitoringService",
+      "type": "SERVICE",
+      "responsibility": "Associate measurements with patients, retrieve patient thresholds, evaluate heart-rate measurements, and detect abnormalities.",
+      "dependencies": [
+        "CMP-004",
+        "CMP-005",
+        "CMP-003"
+      ]
+    },
+    {
+      "id": "CMP-003",
+      "name": "AlertService",
+      "type": "SERVICE",
+      "responsibility": "Create alerts, notify nurses, track acknowledgments, and escalate unacknowledged alerts.",
+      "dependencies": [
+        "CMP-005",
+        "CMP-006"
+      ]
+    },
+    {
+      "id": "CMP-004",
+      "name": "PatientRepository",
+      "type": "REPOSITORY",
+      "responsibility": "Store and retrieve patient monitoring information, assigned nurses, and heart-rate thresholds.",
+      "dependencies": []
+    },
+    {
+      "id": "CMP-005",
+      "name": "EventRepository",
+      "type": "REPOSITORY",
+      "responsibility": "Store abnormal heart-rate events and manage event and alert status information.",
+      "dependencies": []
+    },
+    {
+      "id": "CMP-006",
+      "name": "NurseInterface",
+      "type": "INTERFACE",
+      "responsibility": "Display alerts, allow nurses to acknowledge alerts, and provide access to monitoring information and abnormal-event history.",
+      "dependencies": [
+        "CMP-003",
+        "CMP-004",
+        "CMP-005"
+      ]
+    },
+    {
+      "id": "CMP-007",
+      "name": "AdministrationInterface",
+      "type": "INTERFACE",
+      "responsibility": "Allow authorized users to register patients, assign nurses, and configure heart-rate thresholds.",
+      "dependencies": [
+        "CMP-004"
+      ]
+    }
+  ]
+}

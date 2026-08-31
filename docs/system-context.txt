@@ -1,0 +1,156 @@
+# Smart Medical Monitoring System — System Context
+
+## 1. System Purpose
+
+The Smart Medical Monitoring System is designed to monitor patients' heart-rate measurements.
+
+The system receives heart-rate measurements from an external monitoring device and compares each received measurement against an established threshold.
+
+When an abnormal heart rate is detected, the system must notify the appropriate nurse and record the important monitoring event.
+
+The system is intended to continuously monitor heart-rate measurements while maintaining relevant records for later review.
+
+## 2. Actors / External Entities
+
+### Monitoring Device
+
+The monitoring device is connected to the patient and is responsible for measuring the patient's heart rate.
+
+It sends heart-rate measurements to the Smart Medical Monitoring System.
+
+### Nurse
+
+The nurse receives notifications when the system detects an abnormal heart-rate measurement for a patient.
+
+### Patient
+
+The patient is the person whose heart rate is being monitored.
+
+The patient interacts indirectly with the software through the monitoring device and is therefore primarily considered a stakeholder/domain entity rather than a direct software actor.
+
+## 3. Main Capabilities
+
+The system should be capable of:
+
+* Receiving heart-rate measurements from a monitoring device.
+* Associating received measurements with the correct patient.
+* Comparing received measurements against an established heart-rate threshold.
+* Determining whether a heart-rate measurement is normal or abnormal.
+* Notifying the appropriate nurse when an abnormality is detected.
+* Recording important heart-rate monitoring events.
+* Continuing monitoring after each processed measurement.
+
+## 4. System Boundary
+
+The Smart Medical Monitoring System is responsible for:
+
+* Receiving heart-rate measurements.
+* Processing received heart-rate data.
+* Comparing measurements against configured thresholds.
+* Detecting abnormal heart-rate measurements.
+* Creating notifications when abnormalities are detected.
+* Recording important monitoring events.
+
+The external monitoring device is responsible for physically measuring the patient's heart rate.
+
+The system itself does not measure the patient's heart rate.
+
+The nurse is responsible for responding to notifications and making medical decisions after receiving an alert.
+
+## 5. Out of Scope
+
+The initial system is focused only on heart-rate monitoring.
+
+The following are outside the current scope:
+
+* Diagnosing medical conditions.
+* Treating patients.
+* Monitoring health measurements other than heart rate.
+* Physically measuring heart rate.
+* Making medical decisions on behalf of healthcare professionals.
+
+Additional functionality may be considered later if required by the client.
+
+## 6. Basic Workflow
+
+1. A monitoring device is connected to a patient.
+2. The monitoring device measures the patient's heart rate.
+3. The monitoring device sends a heart-rate measurement to the Smart Medical Monitoring System.
+4. The system receives the measurement.
+5. The system identifies the patient associated with the measurement.
+6. The system compares the received heart rate against the configured threshold.
+7. If the heart rate is within the accepted threshold:
+
+   * No alert is generated.
+   * Monitoring continues.
+8. If the heart rate is outside the accepted threshold:
+
+   * The system identifies the appropriate nurse.
+   * The system sends an urgent notification containing information about the patient and the abnormal heart-rate event.
+   * The system records the abnormal event.
+9. The system continues monitoring subsequent heart-rate measurements.
+
+Whether normal measurements should also be stored remains an open requirement that must be clarified with the client.
+
+## 7. Assumptions
+
+At this stage, the following items must not yet be treated as confirmed system requirements:
+
+* The system may need to support multiple patients simultaneously.
+* Different patients may have different assigned nurses.
+* Heart-rate thresholds may vary between patients.
+* Alerts may require acknowledgment from nurses.
+* Monitoring data may need to be retained for a defined period.
+
+These assumptions must be confirmed before being implemented.
+
+## 8. Questions for the Client
+
+1. What exactly is considered an "important monitoring event"? Does this include only abnormal heart-rate events or other events as well?
+
+2. Should normal heart-rate measurements also be stored, or should only abnormal events be recorded?
+
+3. How frequently will the monitoring device send heart-rate measurements to the system?
+
+4. Should the system support multiple patients simultaneously? If so, should each patient have separate monitoring records and an assigned nurse?
+
+5. What should happen if the assigned nurse does not respond to an abnormal-heart-rate notification?
+
+6. Through which communication mechanism should the nurse receive an urgent notification?
+
+7. Should anyone other than the assigned nurse be notified when an abnormal event occurs?
+
+8. What should the system do if the monitoring device becomes disconnected or stops sending measurements?
+
+9. What patient information should be stored, and which users should be authorized to access that information?
+
+10. How long should patient monitoring records remain stored?
+
+11. What heart-rate thresholds define a normal or abnormal measurement?
+
+12. Should thresholds be the same for every patient or configurable individually?
+
+13. Should different levels of abnormality result in different alert severities?
+
+14. Should nurses be required to acknowledge received alerts?
+
+15. What should happen if the system receives invalid, missing, or corrupted heart-rate data?
+
+
+Client clarification
+
+Assume the following answers:
+
+The system monitors multiple patients simultaneously.
+Each patient has a unique ID and one assigned nurse.
+The monitoring device sends a measurement every 5 seconds.
+Each patient has configurable minimum and maximum heart-rate thresholds.
+Normal measurements do not need permanent storage.
+Every abnormal heart-rate event must be stored.
+An abnormal event contains the patient ID, heart rate, timestamp, severity, and notification status.
+Nurses receive notifications through the monitoring application.
+A nurse must acknowledge an alert.
+If an alert is not acknowledged within 60 seconds, it must be escalated.
+Device disconnection must generate a technical alert.
+Patient medical diagnosis and treatment remain outside the system.
+Monitoring records must be retained for a configurable retention period.
