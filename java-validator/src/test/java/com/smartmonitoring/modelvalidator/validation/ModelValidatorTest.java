@@ -21,7 +21,7 @@ public class ModelValidatorTest {
         List<Requirement> requirements = List.of(req1, req2);
         ModelValidator validator = new ModelValidator();
         List<String> errors = validator.findDuplicateRequirementIds(requirements);
-        // assertFalse(errors.isEmpty());
+        // assertFalse (errors.isEmpty());
         // assertEquals(1, errors.size());
         // assertEquals("Duplicate requirement ID found: REQ-001", errors.get(0));
         assertTrue(errors.isEmpty());
